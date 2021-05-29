@@ -27,7 +27,15 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/about-us">About Us</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/profile">Profile</a>
+            </li>
           </ul>
+          <% if(accept){ %>
+          <button class="btn btn-outline-success"><a href='/logout'>Logout</a></button>
+          <% } else{ %>  
+          <button class="btn btn-outline-success"><a href='/login'>Login</a></button>
+          <% } %>
         </div>
       </div>
     </nav><br><br>
