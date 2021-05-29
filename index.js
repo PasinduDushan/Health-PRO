@@ -1,9 +1,10 @@
+require('dotenv').config()
 const express = require('express') //importing express
 const app = express() //Making a new express app
 const PORT = 80
 const parser = require('body-parser')
 const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey(process.env['API_KEY']);
+sgMail.setApiKey(process.env.API_KEY);
 const { auth, requiresAuth } = require('express-openid-connect');
 
 app.use(parser.urlencoded({ extended: false }))
@@ -13,10 +14,10 @@ app.set('view engine', 'ejs') //View engine or knows as front-end set to ejs
 const config = {
   authRequired: false,
   auth0Logout: true,
-  secret: process.env['SECRET'],
-  baseURL: process.env['BASE_URL'],
-  clientID: process.env['CLIENT_ID'],
-  issuerBaseURL: process.env['ISSUER']
+  secret: process.env.SECRET,
+  baseURL: process.env.BASE_URL,
+  clientID: process.env.CLIENT_ID,
+  issuerBaseURL: process.env.ISSUER
 };
 app.use(auth(config));
 
